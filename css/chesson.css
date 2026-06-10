@@ -57,9 +57,12 @@
   opacity: .9;
 }
 
+/* --- Uniform listing card images (crop any aspect to a consistent shape) --- */
+img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+
 /* --- Areas We Serve cards --- */
 .area-card { position: relative; overflow: hidden; border-radius: 12px; display: block; }
-.area-card img { transition: transform .6s ease; width: 100%; }
+.area-card img { transition: transform .6s ease; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .area-card:hover img { transform: scale(1.08); }
 .area-card .area-label {
   position: absolute; left: 0; bottom: 0; width: 100%;

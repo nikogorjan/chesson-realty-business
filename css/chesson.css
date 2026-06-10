@@ -7,6 +7,14 @@
   #agent-card { margin-top: 120px !important; margin-right: 7% !important; }
 }
 
+/* --- Hero carousel: let prev/next arrows receive clicks beneath the overlays --- */
+#section-hero .abs { pointer-events: none; }
+#section-hero .abs a,
+#section-hero .abs .btn-main,
+#section-hero #agent-card a { pointer-events: auto; }
+#section-hero .swiper-button-next,
+#section-hero .swiper-button-prev { pointer-events: auto; z-index: 12; }
+
 /* --- NC towns marquee strip --- */
 .nc-marquee {
   overflow: hidden;

@@ -15,8 +15,7 @@
 @media (max-width: 991px) {
   .hero-content { display: flex; align-items: center; padding: 86px 0 40px; }
   .hero-content > .container { width: 100%; }
-  .hero-cardcol { margin-bottom: 1.5rem; }
-  #agent-card { max-width: calc(100vw - 24px); }
+  .hero-cardcol { display: none !important; }   /* hide agent card on mobile/tablet */
 }
 
 /* --- Hero carousel: let prev/next arrows receive clicks beneath the overlays --- */

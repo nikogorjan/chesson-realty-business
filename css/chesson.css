@@ -138,3 +138,37 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 /* --- Misc --- */
 .text-brand { color: var(--primary-color) !important; }
 .bg-brand { background: var(--primary-color) !important; }
+
+/* ============================================================
+   NORTH CAROLINA FLAG PALETTE
+   Navy primary + navy dark sections, gold accents on dark, neutral taglines,
+   red used sparingly (status badges, footer stripe, timeline dots, FAQ markers)
+   ============================================================ */
+/* The template sets dark-section colors as variables on the universal (*)
+   selector, so we must re-declare them on * here (chesson.css loads later). */
+* {
+  --bg-dark-1: #0A1E3D;        /* was teal-green #103C3B */
+  --bg-dark-2: #112A52;
+  --bg-dark-3: #06152C;
+  --bg-dark-1-rgb: 10, 30, 61;
+}
+/* Taglines / eyebrows: neutral, no accent color */
+.subtitle { color: #8a8a8a !important; }                              /* muted grey on light */
+.section-dark .subtitle { color: rgba(255,255,255,.55) !important; }  /* muted on dark navy */
+/* Gold accents only on dark sections (visible on navy) */
+.section-dark .id-color,
+.nc-marquee .dot,
+.step-num,
+footer .id-color { color: #FFC72C !important; }
+.quote-card .stars { color: #FFC72C; }
+
+/* NC flag RED — used sparingly, where red belongs */
+#section-hero .bg-color { background: var(--secondary-color) !important; }      /* red "For Sale" status badges */
+footer.section-dark { border-top: 5px solid var(--secondary-color); }          /* red flag stripe atop footer */
+.timeline .t-item::before {                                                    /* red timeline dots */
+  background: var(--secondary-color);
+  box-shadow: 0 0 0 2px var(--secondary-color);
+}
+.faq summary::after { color: var(--secondary-color) !important; }              /* red FAQ +/- markers */
+.ul-style-2 li a:hover,
+.text-brand:hover { color: var(--secondary-color) !important; }

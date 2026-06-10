@@ -18,7 +18,7 @@ template's prebuilt components + animation library — no new frameworks, no CMS
 | Contact | `contact.html` | Agent details + call/text buttons, showing-request form (`booking.php`), office map, quick FAQ |
 
 ## Brand & design
-- **Custom brand color** (`css/colors/scheme-chesson.css`): brick red **#A82B2B** + black, matching the Chesson Realty logo.
+- **North Carolina flag palette** (`css/colors/scheme-ncflag.css` + accents in `chesson.css`): navy **#002B5C** primary, navy dark sections, **gold #FFC72C** accents on dark (step numbers, marquee dots, footer icons), neutral grey taglines, and **red #C8102E** used sparingly (For-Sale badges, footer top stripe, About timeline dots, FAQ markers).
 - **Custom CSS layer** (`css/chesson.css`): NC marquee, card hover-lift, process steps, testimonials, FAQ, journey timeline.
 - **Animations used:** WOW.js scroll reveals, Jarallax parallax heroes, animated counters, Swiper hero (4 slides, parallax), Magnific lightbox galleries, isotope price filtering, CSS marquee, hover scale/blur/slide effects.
 - Nav: Home · Homes for Sale · Buying · Selling · About · Contact. Rich 4-column footer site-wide.

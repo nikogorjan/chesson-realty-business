@@ -1,0 +1,7 @@
+/* North Carolina state flag palette (navy + red; gold accents + navy dark sections set in chesson.css) */
+:root {
+  --primary-color: #002B5C;       /* NC flag navy */
+  --primary-color-rgb: 0, 43, 92;
+  --secondary-color: #C8102E;     /* NC flag red */
+  --secondary-color-rgb: 200, 16, 46;
+}

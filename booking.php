@@ -1,6 +1,6 @@
 <?php
-$subject = 'New Schedule Visit Request'; // Subject of your email
-$to = 'contact@designesia.com';  //Recipient's E-mail
+$subject = 'New Website Inquiry - Chesson Realty'; // Subject of your email
+$to = 'ChessonRealty@gmail.com';  //Recipient's E-mail
 
 $emailTo = $_POST['email'];
 $name = $_POST['name'];

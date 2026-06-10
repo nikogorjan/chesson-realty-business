@@ -2,26 +2,39 @@
    Chesson Realty — custom layer on top of the Residem template
    ============================================================ */
 
-/* --- Agent card on hero (aligned to the container, right edge pinned to the gutter) --- */
-.agent-wrap { margin-top: 100px; }
-@media (min-width: 992px) { .agent-wrap { margin-top: 120px; } }
-#agent-card { position: absolute; top: 0; right: .75rem; }
-@media (max-width: 575px) {
-  .agent-wrap { margin-top: 88px; }
-  #agent-card { padding: 16px 20px !important; border-radius: 16px; max-width: calc(100vw - 24px); }
-  #agent-card img { width: 78px !important; height: 78px !important; }
-  #agent-card h4 { font-size: 1.05rem; }
+/* --- Hero layout: text bottom-left + agent card top-right (desktop); stacked column (mobile) --- */
+.hero-content { top: 0; bottom: 0; }
+.hero-text, .hero-cardcol { display: flex; flex-direction: column; }
+.hero-title { font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 1.03; }
+@media (min-width: 992px) {
+  .hero-content > .container { height: 100%; }
+  .hero-row { height: 100%; }
+  .hero-text { justify-content: flex-end; padding-bottom: 7%; }
+  .hero-cardcol { justify-content: flex-start; align-items: flex-end; padding-top: 120px; }
+}
+@media (max-width: 991px) {
+  .hero-content { display: flex; align-items: center; padding: 86px 0 40px; }
+  .hero-content > .container { width: 100%; }
+  .hero-cardcol { margin-bottom: 1.5rem; }
+  #agent-card { max-width: calc(100vw - 24px); }
 }
 
 /* --- Hero carousel: let prev/next arrows receive clicks beneath the overlays --- */
 #section-hero .abs,
-.agent-wrap .container { pointer-events: none; }
-#agent-card { pointer-events: auto; }
-#section-hero .abs a,
-#section-hero .abs .btn-main,
-#agent-card a { pointer-events: auto; }
+.hero-content .container,
+.hero-content .row,
+.hero-text, .hero-cardcol { pointer-events: none; }
+#agent-card,
+.hero-text a,
+#agent-card a,
 #section-hero .swiper-button-next,
-#section-hero .swiper-button-prev { pointer-events: auto; z-index: 12; }
+#section-hero .swiper-button-prev { pointer-events: auto; }
+#section-hero .swiper-button-next,
+#section-hero .swiper-button-prev { z-index: 12; }
+
+/* nav 'Contact William' button stays on one line */
+.menu_side_area .btn-main,
+.menu_side_area .btn-main span { white-space: nowrap; }
 
 /* --- NC towns marquee strip --- */
 .nc-marquee {

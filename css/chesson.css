@@ -55,6 +55,12 @@
 .text-logo:hover { color: #fff; }
 .text-logo span { font-weight: 400; opacity: .8; margin-left: .35em; }
 .footer-logo { font-size: 1.95rem; }
+
+/* Logo on a white chip so the multi-colour logo reads on the dark header/footer */
+.logo-chip { background: #fff; border-radius: 10px; padding: 6px 12px; display: inline-flex; align-items: center; line-height: 0; }
+.logo-chip img { height: 50px; width: auto; display: block; }
+.footer-logo.logo-chip { padding: 10px 16px; }
+.footer-logo.logo-chip img { height: 74px; }
 /* keep the 6-item menu on one row in the centered-logo header */
 @media (min-width: 992px) {
   #mainmenu > li { margin-right: 18px; }

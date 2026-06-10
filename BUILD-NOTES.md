@@ -34,7 +34,7 @@ All 12 pages verified: consistent nav/footer/brand, **0 broken internal links, 0
 1. **The 6 listings are SAMPLES** (made-up addresses, prices, specs across Clayton/Garner/Raleigh/Wendell/Knightdale/Fuquay-Varina). Replace with real listings.
 2. **Property photos** = template stock (`images/apartment/*`, `images/gallery/*`).
 3. **William's photo** = stock headshot (`images/team/2.webp`). Send a real photo.
-4. **Logo** = template logo (`images/logo.webp` still shows "Residem"). Send the real Chesson Realty logo (red tree/house) — transparent PNG/SVG ideal.
+4. **Logo** = real Chesson Realty logo (`images/chesson_realty_logo.svg`), shown on a small white chip in the header/footer so its colors read on the dark navy. *(Optional: the browser-tab favicon `images/icon.webp` is still the template's — send a favicon/ICO if you want that updated too.)*
 5. **Social links** in the footer point to `#` — send your Facebook/Instagram/etc URLs.
 6. **Testimonials** are representative samples — replace with real client reviews (clearly labeled as samples on the page for now).
 7. **Name:** used **William Chesson** (business card). Folder says "Randy" — confirm.

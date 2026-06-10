@@ -122,18 +122,26 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .signature { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.6rem; }
 
 /* --- Timeline (About) --- */
-.timeline { position: relative; padding-left: 2rem; }
+.timeline { position: relative; }
+.timeline .t-item { position: relative; padding: 0 0 2rem 2.75rem; }
+/* the vertical line (centred at 10px from the left edge) */
 .timeline::before {
-  content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
-  width: 2px; background: rgba(var(--primary-color-rgb), .35);
+  content: ""; position: absolute; left: 9px; top: .5rem; bottom: 1rem;
+  width: 2px; background: rgba(var(--primary-color-rgb), .3);
+  transform-origin: top center;
 }
-.timeline .t-item { position: relative; padding: 0 0 2rem 1.5rem; }
+/* the dot — centred ON the line via translateX(-50%) */
 .timeline .t-item::before {
-  content: ""; position: absolute; left: -1.55rem; top: .3rem;
-  width: 14px; height: 14px; border-radius: 50%;
+  content: ""; position: absolute; left: 10px; top: .3rem;
+  transform: translateX(-50%);
+  width: 16px; height: 16px; border-radius: 50%;
   background: var(--primary-color); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary-color);
 }
 .timeline .t-year { color: var(--primary-color); font-weight: 700; }
+
+/* --- Timeline animation (progressive enhancement; JS adds .tl-anim then .in-view) --- */
+.timeline.tl-anim::before { transform: scaleY(0); transition: transform 1.4s ease; }
+.timeline.tl-anim.in-view::before { transform: scaleY(1); }
 
 /* --- Misc --- */
 .text-brand { color: var(--primary-color) !important; }

@@ -82,13 +82,13 @@
                 </div></div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <div class="timeline wow fadeInUp" data-wow-delay=".2s">
-                            <div class="t-item"><div class="t-year">Raleigh Roots</div><h4 class="mb-1">Born &amp; raised in the Triangle</h4><p class="mb-0">A true local &mdash; I grew up here and never wanted to leave. These towns aren't just my market; they're my home.</p></div>
-                            <div class="t-item"><div class="t-year">U.S. Army</div><h4 class="mb-1">82nd Airborne Division</h4><p class="mb-0">Honorably discharged Army veteran. Service taught me discipline, integrity, and how to keep my word under pressure.</p></div>
-                            <div class="t-item"><div class="t-year">20+ Years</div><h4 class="mb-1">Licensed N.C. contractor</h4><p class="mb-0">Two decades building and renovating across North Carolina &mdash; the foundation of my eye for quality and value.</p></div>
-                            <div class="t-item"><div class="t-year">20+ Years</div><h4 class="mb-1">Real estate with Chesson Realty</h4><p class="mb-0">Owner and Broker-in-Charge, member of the National Association of Realtors and Doorify MLS, serving Triangle families.</p></div>
-                            <div class="t-item"><div class="t-year">30 Years</div><h4 class="mb-1">Family man</h4><p class="mb-0">Happily married for three decades &mdash; a reminder every day of what "home" really means.</p></div>
-                            <div class="t-item"><div class="t-year">Today</div><h4 class="mb-1">Here for you</h4><p class="mb-0">Bringing all of it &mdash; the local roots, the building know-how, the integrity &mdash; to every client I'm lucky to serve.</p></div>
+                        <div class="timeline">
+                            <div class="t-item wow fadeInUp" data-wow-delay=".0s"><div class="t-year">Raleigh Roots</div><h4 class="mb-1">Born &amp; raised in the Triangle</h4><p class="mb-0">A true local &mdash; I grew up here and never wanted to leave. These towns aren't just my market; they're my home.</p></div>
+                            <div class="t-item wow fadeInUp" data-wow-delay=".1s"><div class="t-year">U.S. Army</div><h4 class="mb-1">82nd Airborne Division</h4><p class="mb-0">Honorably discharged Army veteran. Service taught me discipline, integrity, and how to keep my word under pressure.</p></div>
+                            <div class="t-item wow fadeInUp" data-wow-delay=".2s"><div class="t-year">20+ Years</div><h4 class="mb-1">Licensed N.C. contractor</h4><p class="mb-0">Two decades building and renovating across North Carolina &mdash; the foundation of my eye for quality and value.</p></div>
+                            <div class="t-item wow fadeInUp" data-wow-delay=".3s"><div class="t-year">20+ Years</div><h4 class="mb-1">Real estate with Chesson Realty</h4><p class="mb-0">Owner and Broker-in-Charge, member of the National Association of Realtors and Doorify MLS, serving Triangle families.</p></div>
+                            <div class="t-item wow fadeInUp" data-wow-delay=".4s"><div class="t-year">30 Years</div><h4 class="mb-1">Family man</h4><p class="mb-0">Happily married for three decades &mdash; a reminder every day of what "home" really means.</p></div>
+                            <div class="t-item wow fadeInUp" data-wow-delay=".5s"><div class="t-year">Today</div><h4 class="mb-1">Here for you</h4><p class="mb-0">Bringing all of it &mdash; the local roots, the building know-how, the integrity &mdash; to every client I'm lucky to serve.</p></div>
                         </div>
                     </div>
                 </div>
@@ -185,6 +185,21 @@
 
     <script src="js/vendors.js"></script>
     <script src="js/designesia.js"></script>
+
+    <!-- Timeline line-draw on scroll (progressive enhancement) -->
+    <script>
+        (function () {
+            var tl = document.querySelector('.timeline');
+            if (!tl || !('IntersectionObserver' in window)) return;
+            tl.classList.add('tl-anim');
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { tl.classList.add('in-view'); io.disconnect(); }
+                });
+            }, { threshold: 0.25 });
+            io.observe(tl);
+        })();
+    </script>
 
 </body>
 

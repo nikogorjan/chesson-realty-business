@@ -1,49 +1,47 @@
-# Chesson Realty — First Draft Build Notes
+# Chesson Realty Website — Build Notes
 
-Branch: `feat/247` · all work committed locally (not pushed).
-Built by reusing the existing Residem template components — no new frameworks, no CMS.
-
----
-
-## What's done
-
-A complete, clickable multi-page static site:
-
-| Page | File | Notes |
-|------|------|-------|
-| Home | `index.html` | Hero with your photo card, "Meet William", Featured Homes (4), Why-Work-With-William, by-the-numbers, contact CTA |
-| Homes for Sale | `homes-for-sale.html` | Listings grid (4 sample homes) |
-| Property details | `listing-1.html` … `listing-4.html` | Price, specs, photo gallery, features, your contact |
-| About William | `about.html` | Your bio, credentials & affiliations, personal promise |
-| Contact | `contact.html` | Details + showing-request form + office map |
-
-**Site-wide, real info applied:**
-- Nav simplified to **Home · Homes for Sale · About · Contact** (the old template demo menu is gone)
-- Footer + contact blocks use **William Chesson, 804 Fernwood Dr., Clayton NC 27520, Direct 919-585-7997, Mobile 919-413-7512, ChessonRealty@gmail.com, Realtor® · Doorify MLS**
-- Contact form (`booking.php`) now emails **ChessonRealty@gmail.com**
-- "By the numbers" uses only true facts from your bio (20+ yrs real estate, 20+ yrs contractor, 82nd Airborne, 30 yrs married)
-
-**Cleanup:** every unused template page is in `_unused/` (nothing deleted). Original single-property homepage is at `_unused/index-single-property-backup.html`.
+Branch: `feat/247` · committed locally (not pushed). Built by reusing the Residem
+template's prebuilt components + animation library — no new frameworks, no CMS.
 
 ---
 
-## ⚠️ Placeholder — needs your real content
+## The site (12 pages)
 
-1. **The 4 listings are SAMPLES** (made-up addresses, prices, specs in Clayton/Garner/Raleigh/Wendell). Replace with real listings, or tell me and I'll swap in actual ones.
-2. **Property photos** are template stock images (`images/apartment/*`, `images/gallery/*`). Need real photos per home.
-3. **Your photo** is a stock headshot (`images/team/2.webp`). Send a real photo of you to drop in (homepage hero card, About page, contact blocks).
-4. **Logo** is still the template logo (`images/logo.webp`). Send the real Chesson Realty logo (red tree/house) — ideally a transparent PNG/SVG.
-5. **Social links** in the footer point to `#` — give me your Facebook/Instagram/etc. URLs (or I'll remove the ones you don't use).
-6. **Name:** used **William Chesson** everywhere (per your business card). The project folder says "Randy" — confirm which is correct.
-7. **Office hours** were removed from the footer (template had fake ones) — tell me your hours if you want them shown.
+| Page | File | Highlights |
+|------|------|-----------|
+| Home | `index.html` | Hero swiper + agent card, **animated NC-towns marquee**, Meet William story, Featured Homes, Why-William icon cards, How-It-Works steps, **Areas We Serve**, testimonials, by-the-numbers, **FAQ**, parallax CTA |
+| Homes for Sale | `homes-for-sale.html` | **Filterable grid** (by price) of 6 listings, CTA |
+| Listing details ×6 | `listing-1…6.html` | Hero badge, price + spec cards, **lightbox photo gallery**, features, **what's nearby**, area map, William contact, CTA |
+| Buying | `buying.html` | Intro, 6-step buyer journey, first-time-buyer tips, buyer FAQ, CTA |
+| Selling | `selling.html` | Free-valuation CTA, 6-step process, contractor-advantage cards, seller FAQ |
+| About William | `about.html` | Full story, **journey timeline**, credential cards, "my promise", testimonials, counters |
+| Contact | `contact.html` | Agent details + call/text buttons, showing-request form (`booking.php`), office map, quick FAQ |
+
+## Brand & design
+- **Custom brand color** (`css/colors/scheme-chesson.css`): brick red **#A82B2B** + black, matching the Chesson Realty logo.
+- **Custom CSS layer** (`css/chesson.css`): NC marquee, card hover-lift, process steps, testimonials, FAQ, journey timeline.
+- **Animations used:** WOW.js scroll reveals, Jarallax parallax heroes, animated counters, Swiper hero (4 slides, parallax), Magnific lightbox galleries, isotope price filtering, CSS marquee, hover scale/blur/slide effects.
+- Nav: Home · Homes for Sale · Buying · Selling · About · Contact. Rich 4-column footer site-wide.
+- All real contact info applied (William Chesson, 804 Fernwood Dr Clayton NC, 919-585-7997 / 919-413-7512, ChessonRealty@gmail.com, Realtor®·Doorify MLS). `booking.php` emails ChessonRealty@gmail.com.
+- Source is **pure-ASCII / HTML-entity safe** — renders correctly on any host.
+
+## Quality checks done
+All 12 pages verified: consistent nav/footer/brand, **0 broken internal links, 0 missing images**, no leftover template references, all icon classes confirmed to exist, visual render confirmed (home, listing, about).
 
 ---
 
-## How to preview
-Open `index.html` in a browser and click around. (The contact form's email sending only works once hosted on a PHP server — locally it just won't send.)
+## ⚠️ Still placeholder — needs your real content
+1. **The 6 listings are SAMPLES** (made-up addresses, prices, specs across Clayton/Garner/Raleigh/Wendell/Knightdale/Fuquay-Varina). Replace with real listings.
+2. **Property photos** = template stock (`images/apartment/*`, `images/gallery/*`).
+3. **William's photo** = stock headshot (`images/team/2.webp`). Send a real photo.
+4. **Logo** = template logo (`images/logo.webp` still shows "Residem"). Send the real Chesson Realty logo (red tree/house) — transparent PNG/SVG ideal.
+5. **Social links** in the footer point to `#` — send your Facebook/Instagram/etc URLs.
+6. **Testimonials** are representative samples — replace with real client reviews (clearly labeled as samples on the page for now).
+7. **Name:** used **William Chesson** (business card). Folder says "Randy" — confirm.
+8. **"Areas We Serve" / "What's nearby"** copy is written from general local knowledge — review for accuracy.
 
-## Suggested next steps
-- Send real listing data + photos → I'll build out real listing pages
-- Send your photo + logo → I'll replace the placeholders everywhere
-- Decide on real social links
-- Later: connect Doorify MLS / IDX for auto-updating listings (see earlier CMS discussion)
+## Preview
+Open `index.html` in a browser and click around. (The contact form only sends once hosted on a PHP server.)
+
+## To add a listing later
+The 6 listing pages share one structure. Easiest path: copy an existing `listing-N.html`, change the address/price/specs/photos. (They were generated from a small Python template during the build — ask and I can regenerate the generator.)

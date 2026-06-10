@@ -1,0 +1,7 @@
+/* Chesson Realty palette — deep brand red (main) + navy (support/dark sections) */
+:root {
+  --primary-color: #A11F2A;       /* Chesson red (from the logo) — main colour */
+  --primary-color-rgb: 161, 31, 42;
+  --secondary-color: #002B5C;     /* navy — supporting accent */
+  --secondary-color-rgb: 0, 43, 92;
+}

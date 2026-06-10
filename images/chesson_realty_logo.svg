@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 640 536" font-family="Georgia, 'Times New Roman', Times, serif">
+<g>
+<path d="M160,176 L170,176 L174,285 L156,285 Z" fill="#C1272D"/>
+<circle cx="150" cy="115" r="46" fill="#C1272D"/>
+<circle cx="181" cy="112" r="44" fill="#C1272D"/>
+<circle cx="165" cy="138" r="42" fill="#C1272D"/>
+<circle cx="120" cy="120" r="28" fill="#C1272D"/>
+<circle cx="132" cy="90" r="27" fill="#C1272D"/>
+<circle cx="160" cy="75" r="29" fill="#C1272D"/>
+<circle cx="192" cy="84" r="27" fill="#C1272D"/>
+<circle cx="209" cy="112" r="27" fill="#C1272D"/>
+<circle cx="201" cy="146" r="27" fill="#C1272D"/>
+<circle cx="171" cy="166" r="28" fill="#C1272D"/>
+<circle cx="138" cy="161" r="27" fill="#C1272D"/>
+<circle cx="112" cy="142" r="26" fill="#C1272D"/>
+</g>
+<g stroke="#15191F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M415,48 L562,178 L544,178 L544,252 L286,252 L286,178 L268,178 Z" fill="#FFFFFF"/>
+<path d="M482,107 L502,125 L502,64 L482,64 Z" fill="#C1272D"/>
+<rect x="359" y="190" width="42" height="50" fill="#FFFFFF"/>
+<rect x="364" y="195" width="32" height="40" fill="#15191F" stroke="none"/>
+<path d="M366.0,231 A14,14 0 0 1 394.0,231 Z" fill="#FFFFFF" stroke="none"/>
+<rect x="429" y="190" width="42" height="50" fill="#FFFFFF"/>
+<rect x="434" y="195" width="32" height="40" fill="#15191F" stroke="none"/>
+<path d="M436.0,231 A14,14 0 0 1 464.0,231 Z" fill="#FFFFFF" stroke="none"/>
+</g>
+<g fill="#15191F">
+<path d="M36,230 L38.5,223 L41,230 L41,285 L36,285 Z"/>
+<path d="M51,230 L53.5,223 L56,230 L56,285 L51,285 Z"/>
+<path d="M66,230 L68.5,223 L71,230 L71,285 L66,285 Z"/>
+<path d="M81,230 L83.5,223 L86,230 L86,285 L81,285 Z"/>
+<path d="M96,230 L98.5,223 L101,230 L101,285 L96,285 Z"/>
+<path d="M111,230 L113.5,223 L116,230 L116,285 L111,285 Z"/>
+<path d="M126,230 L128.5,223 L131,230 L131,285 L126,285 Z"/>
+<path d="M141,230 L143.5,223 L146,230 L146,285 L141,285 Z"/>
+<path d="M156,230 L158.5,223 L161,230 L161,285 L156,285 Z"/>
+<path d="M171,230 L173.5,223 L176,230 L176,285 L171,285 Z"/>
+<path d="M186,230 L188.5,223 L191,230 L191,285 L186,285 Z"/>
+<path d="M201,230 L203.5,223 L206,230 L206,285 L201,285 Z"/>
+<path d="M216,230 L218.5,223 L221,230 L221,285 L216,285 Z"/>
+<path d="M231,230 L233.5,223 L236,230 L236,285 L231,285 Z"/>
+<path d="M246,230 L248.5,223 L251,230 L251,285 L246,285 Z"/>
+<path d="M261,230 L263.5,223 L266,230 L266,285 L261,285 Z"/>
+<path d="M276,230 L278.5,223 L281,230 L281,285 L276,285 Z"/>
+<path d="M351,230 L353.5,223 L356,230 L356,285 L351,285 Z"/>
+<path d="M366,230 L368.5,223 L371,230 L371,285 L366,285 Z"/>
+<path d="M381,230 L383.5,223 L386,230 L386,285 L381,285 Z"/>
+<path d="M396,230 L398.5,223 L401,230 L401,285 L396,285 Z"/>
+<path d="M411,230 L413.5,223 L416,230 L416,285 L411,285 Z"/>
+<path d="M426,230 L428.5,223 L431,230 L431,285 L426,285 Z"/>
+<path d="M441,230 L443.5,223 L446,230 L446,285 L441,285 Z"/>
+<path d="M456,230 L458.5,223 L461,230 L461,285 L456,285 Z"/>
+<path d="M471,230 L473.5,223 L476,230 L476,285 L471,285 Z"/>
+<path d="M486,230 L488.5,223 L491,230 L491,285 L486,285 Z"/>
+<path d="M501,230 L503.5,223 L506,230 L506,285 L501,285 Z"/>
+<path d="M516,230 L518.5,223 L521,230 L521,285 L516,285 Z"/>
+<path d="M531,230 L533.5,223 L536,230 L536,285 L531,285 Z"/>
+<path d="M546,230 L548.5,223 L551,230 L551,285 L546,285 Z"/>
+<path d="M561,230 L563.5,223 L566,230 L566,285 L561,285 Z"/>
+<path d="M576,230 L578.5,223 L581,230 L581,285 L576,285 Z"/>
+<path d="M591,230 L593.5,223 L596,230 L596,285 L591,285 Z"/>
+<path d="M606,230 L608.5,223 L611,230 L611,285 L606,285 Z"/>
+<rect x="32" y="238" width="576" height="5"/>
+<rect x="32" y="283" width="576" height="4"/>
+</g>
+<g stroke="#15191F" stroke-width="4" stroke-linejoin="round">
+<path d="M298,285 L298,220 Q298,202 320,202 Q342,202 342,220 L342,285 Z" fill="#FFFFFF"/>
+<circle cx="312" cy="256" r="3.6" fill="#15191F" stroke="none"/>
+</g>
+<text x="320" y="380" text-anchor="middle" font-size="90" font-weight="700" letter-spacing="3" fill="#8C1A2B">CHESSON</text>
+<rect x="116" y="404" width="408" height="66" fill="#15191F"/>
+<text x="320" y="451" text-anchor="middle" font-size="46" font-weight="600" letter-spacing="20" fill="#FFFFFF">REALTY</text>
+<text x="320" y="506" text-anchor="middle" font-size="25" font-style="italic" font-weight="600" letter-spacing="1" fill="#8C1A2B">A Maximum Service Company</text>
+</svg>

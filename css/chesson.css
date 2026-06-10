@@ -141,7 +141,7 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
   font-size: 2.4rem; line-height: 1;
   color: var(--primary-color); opacity: .5;
 }
-.quote-card .stars { color: #f5a623; letter-spacing: 3px; font-size: 1.05rem; }
+.quote-card .stars { color: var(--primary-color); letter-spacing: 3px; font-size: 1.05rem; }
 
 /* Footer link list */
 .ul-style-2 { list-style: none; padding: 0; margin: 0; }
@@ -206,14 +206,12 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .bg-brand { background: var(--primary-color) !important; }
 
 /* ============================================================
-   NORTH CAROLINA FLAG PALETTE
-   Navy primary + navy dark sections, gold accents on dark, neutral taglines,
-   red used sparingly (status badges, footer stripe, timeline dots, FAQ markers)
+   CHESSON PALETTE — deep brand red (main) + navy (support / dark sections)
    ============================================================ */
 /* The template sets dark-section colors as variables on the universal (*)
    selector, so we must re-declare them on * here (chesson.css loads later). */
 * {
-  --bg-dark-1: #0A1E3D;        /* was teal-green #103C3B */
+  --bg-dark-1: #0A1E3D;        /* navy dark sections (was teal-green) */
   --bg-dark-2: #112A52;
   --bg-dark-3: #06152C;
   --bg-dark-1-rgb: 10, 30, 61;
@@ -221,20 +219,19 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 /* Taglines / eyebrows: neutral, no accent color */
 .subtitle { color: #8a8a8a !important; }                              /* muted grey on light */
 .section-dark .subtitle { color: rgba(255,255,255,.55) !important; }  /* muted on dark navy */
-/* Gold accents only on dark sections (visible on navy) */
+/* Accents on dark sections — a lighter brand red so they read on navy */
 .section-dark .id-color,
 .nc-marquee .dot,
 .step-num,
-footer .id-color { color: #FFC72C !important; }
-.quote-card .stars { color: #FFC72C; }
+footer .id-color { color: #E8525C !important; }
+.quote-card .stars { color: var(--primary-color); }
 
-/* NC flag RED — used sparingly, where red belongs */
-#section-hero .bg-color { background: var(--secondary-color) !important; }      /* red "For Sale" status badges */
-footer.section-dark { border-top: 5px solid var(--secondary-color); }          /* red flag stripe atop footer */
+/* Red details (red is the primary brand colour) */
+footer.section-dark { border-top: 5px solid var(--primary-color); }            /* red stripe atop footer */
 .timeline .t-item::before {                                                    /* red timeline dots */
-  background: var(--secondary-color);
-  box-shadow: 0 0 0 2px var(--secondary-color);
+  background: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
-.faq summary::after { color: var(--secondary-color) !important; }              /* red FAQ +/- markers */
+.faq summary::after { color: var(--primary-color) !important; }                /* red FAQ +/- markers */
 .ul-style-2 li a:hover,
-.text-brand:hover { color: var(--secondary-color) !important; }
+.text-brand:hover { color: var(--primary-color) !important; }

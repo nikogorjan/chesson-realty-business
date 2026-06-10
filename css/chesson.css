@@ -31,6 +31,9 @@
 #section-hero .swiper-button-next,
 #section-hero .swiper-button-prev { z-index: 12; }
 
+/* Meet-William collage: keep every image a uniform square */
+#section-overview .col-lg-6 img { aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; }
+
 /* nav 'Contact William' button stays on one line */
 .menu_side_area .btn-main,
 .menu_side_area .btn-main span { white-space: nowrap; }

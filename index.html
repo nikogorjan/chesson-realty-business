@@ -160,14 +160,28 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h1 class="fs-120 text-uppercase fs-sm-10vw mb-4 lh-1">Sunvale Residences</h1>
-                            <div class="d-flex align-items-center">
-                                <h4 class="fw-500 mb-0 me-4">320 40th Street B4, New York, NY 10019</h4>
+                            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center">
+                                <h4 class="fw-500 mb-3 mb-md-0 me-md-4">320 40th Street B4, New York, NY 10019</h4>
                                 <a class="btn-main btn-line fx-slide py-0 lh-1-6 fw-400 popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.288901886818!2d-73.93141732484813!3d40.68555563923556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25c739e350217%3A0x413f827e0e00fac3!2s712%20Jefferson%20Ave%2C%20Brooklyn%2C%20NY%2011221%2C%20USA!5e1!3m2!1sen!2sid!4v1746687511128!5m2!1sen!2sid"><span>View on Map</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- agent avatar overlay — fixed on top of carousel, does not change with slides -->
+            <style>
+                @media (min-width: 992px) {
+                    #agent-card { margin-top: 120px !important; margin-right: 7% !important; }
+                }
+            </style>
+            <div id="agent-card" class="abs end-0 top-0 z-2 me-3 text-end text-light d-flex flex-column align-items-center"
+                 style="margin-top:100px; padding:24px 28px; border-radius:20px; background:rgba(0,0,0,.35); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);">
+                <img src="images/team/2.webp" class="rounded-circle mb-3" style="width:96px; height:96px; object-fit:cover; border:3px solid rgba(255,255,255,.85);" alt="William Chesson">
+                <h4 class="fw-600 mb-1">William Chesson</h4>
+                <a href="tel:+19194137512" class="text-light fs-5">(+1) 919-413-7512</a>
+            </div>
+
             <div class="mh-800">
                 <div class="swiper">
                   <!-- Additional required wrapper -->

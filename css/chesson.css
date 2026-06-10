@@ -41,6 +41,25 @@
   to   { transform: translateX(-50%); }
 }
 
+/* --- Text wordmark logo (replaces the template logo image) --- */
+.text-logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.text-logo:hover { color: #fff; }
+.text-logo span { font-weight: 400; opacity: .8; margin-left: .35em; }
+.footer-logo { font-size: 1.95rem; }
+/* keep the 6-item menu on one row in the centered-logo header */
+@media (min-width: 992px) {
+  #mainmenu > li { margin-right: 18px; }
+}
+
 /* --- Hover lift for cards --- */
 .lift { transition: transform .35s ease, box-shadow .35s ease; }
 .lift:hover { transform: translateY(-8px); box-shadow: 0 1.2rem 2.5rem rgba(0,0,0,.12); }

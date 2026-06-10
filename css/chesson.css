@@ -13,7 +13,7 @@
   .hero-cardcol { justify-content: flex-start; align-items: flex-end; padding-top: 120px; }
 }
 @media (max-width: 991px) {
-  .hero-content { display: flex; align-items: flex-end; padding: 86px 0 50px; }
+  .hero-content { display: flex; align-items: flex-end; padding: 86px 0 70px; }
   .hero-content > .container { width: 100%; }
   .hero-cardcol { display: none !important; }   /* hide agent card on mobile/tablet */
 }

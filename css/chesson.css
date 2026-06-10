@@ -2,16 +2,24 @@
    Chesson Realty — custom layer on top of the Residem template
    ============================================================ */
 
-/* --- Agent card on hero (kept from earlier) --- */
-@media (min-width: 992px) {
-  #agent-card { margin-top: 120px !important; margin-right: 7% !important; }
+/* --- Agent card on hero (aligned to the container, right edge pinned to the gutter) --- */
+.agent-wrap { margin-top: 100px; }
+@media (min-width: 992px) { .agent-wrap { margin-top: 120px; } }
+#agent-card { position: absolute; top: 0; right: .75rem; }
+@media (max-width: 575px) {
+  .agent-wrap { margin-top: 88px; }
+  #agent-card { padding: 16px 20px !important; border-radius: 16px; max-width: calc(100vw - 24px); }
+  #agent-card img { width: 78px !important; height: 78px !important; }
+  #agent-card h4 { font-size: 1.05rem; }
 }
 
 /* --- Hero carousel: let prev/next arrows receive clicks beneath the overlays --- */
-#section-hero .abs { pointer-events: none; }
+#section-hero .abs,
+.agent-wrap .container { pointer-events: none; }
+#agent-card { pointer-events: auto; }
 #section-hero .abs a,
 #section-hero .abs .btn-main,
-#section-hero #agent-card a { pointer-events: auto; }
+#agent-card a { pointer-events: auto; }
 #section-hero .swiper-button-next,
 #section-hero .swiper-button-prev { pointer-events: auto; z-index: 12; }
 
@@ -61,9 +69,11 @@
 .logo-chip img { height: 50px; width: auto; display: block; }
 .footer-logo.logo-chip { padding: 10px 16px; }
 .footer-logo.logo-chip img { height: 74px; }
-/* keep the 6-item menu on one row in the centered-logo header */
+/* logo-left header: keep the logo+nav column wide (button column sizes to
+   content) so the 6-item menu stays on one row */
+header .col-end { flex-grow: 0; }
 @media (min-width: 992px) {
-  #mainmenu > li { margin-right: 18px; }
+  #mainmenu > li { margin-right: 24px; }
 }
 
 /* --- Hover lift for cards --- */

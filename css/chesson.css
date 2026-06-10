@@ -1,0 +1,137 @@
+/* ============================================================
+   Chesson Realty — custom layer on top of the Residem template
+   ============================================================ */
+
+/* --- Agent card on hero (kept from earlier) --- */
+@media (min-width: 992px) {
+  #agent-card { margin-top: 120px !important; margin-right: 7% !important; }
+}
+
+/* --- NC towns marquee strip --- */
+.nc-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.nc-marquee .nc-track {
+  display: inline-block;
+  animation: ncscroll 38s linear infinite;
+}
+.nc-marquee:hover .nc-track { animation-play-state: paused; }
+.nc-marquee span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 0 1.1rem;
+  opacity: .85;
+}
+.nc-marquee .dot { color: var(--primary-color); opacity: 1; }
+@keyframes ncscroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- Hover lift for cards --- */
+.lift { transition: transform .35s ease, box-shadow .35s ease; }
+.lift:hover { transform: translateY(-8px); box-shadow: 0 1.2rem 2.5rem rgba(0,0,0,.12); }
+
+/* --- Feature / why cards --- */
+.feature-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 2.2rem 1.8rem;
+  height: 100%;
+}
+.feature-card i { color: var(--primary-color); }
+
+/* --- Process / steps --- */
+.step-card { position: relative; padding: 2rem 1.5rem; height: 100%; }
+.step-num {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary-color);
+  opacity: .22;
+}
+
+/* --- Areas We Serve cards --- */
+.area-card { position: relative; overflow: hidden; border-radius: 12px; display: block; }
+.area-card img { transition: transform .6s ease; width: 100%; }
+.area-card:hover img { transform: scale(1.08); }
+.area-card .area-label {
+  position: absolute; left: 0; bottom: 0; width: 100%;
+  padding: 1.5rem 1.25rem .9rem;
+  color: #fff; z-index: 2; font-weight: 600;
+  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,0));
+}
+
+/* --- Testimonials --- */
+.quote-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 2.2rem;
+  height: 100%;
+}
+.quote-card .q-mark {
+  font-size: 2.4rem; line-height: 1;
+  color: var(--primary-color); opacity: .5;
+}
+.quote-card .stars { color: #f5a623; letter-spacing: 3px; font-size: 1.05rem; }
+
+/* Footer link list */
+.ul-style-2 { list-style: none; padding: 0; margin: 0; }
+.ul-style-2 li { margin-bottom: .55rem; }
+.ul-style-2 li a { opacity: .85; transition: opacity .2s ease, color .2s ease; }
+.ul-style-2 li a:hover { opacity: 1; color: var(--primary-color); }
+.quote-card .author img {
+  width: 52px; height: 52px; border-radius: 50%; object-fit: cover; margin-right: .9rem;
+}
+
+/* --- FAQ (native details, reliable, no JS) --- */
+.faq details {
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 0 1.5rem;
+  background: #fff;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.2rem 0;
+  font-weight: 600;
+  font-size: 1.08rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--primary-color); font-size: 1.6rem; line-height: 1; margin-left: 1rem; }
+.faq details[open] summary::after { content: "\2013"; }
+.faq details[open] summary { border-bottom: 1px solid #eee; }
+.faq details p { padding: 1rem 0 1.2rem; margin: 0; }
+
+/* --- Signature accent --- */
+.signature { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.6rem; }
+
+/* --- Timeline (About) --- */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+  width: 2px; background: rgba(var(--primary-color-rgb), .35);
+}
+.timeline .t-item { position: relative; padding: 0 0 2rem 1.5rem; }
+.timeline .t-item::before {
+  content: ""; position: absolute; left: -1.55rem; top: .3rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--primary-color); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--primary-color);
+}
+.timeline .t-year { color: var(--primary-color); font-weight: 700; }
+
+/* --- Misc --- */
+.text-brand { color: var(--primary-color) !important; }
+.bg-brand { background: var(--primary-color) !important; }

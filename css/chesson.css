@@ -264,53 +264,56 @@ html { interpolate-size: allow-keywords; }
 .timeline.tl-anim.in-view::before { transform: scaleY(1); }
 
 /* ============================================================
-   Clayton page — stylish "segmented control" tabs (neutral gray)
+   Clayton page — Parks tabs (match the #filters pill look site-wide)
+   Self-contained (own JS in clayton.html) so they never fail to load.
    ============================================================ */
-.de-tab.clayton-tabs .d-tab-nav {
+.clayton-tabs .d-tab-nav {
   display: inline-flex;
-  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin: 0;
-  padding: 6px;
-  background: #f0f0f2;
-  border-radius: 999px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.05);
+  padding: 0;
+  list-style: none;
 }
-.de-tab.clayton-tabs .d-tab-nav li {
+.clayton-tabs .d-tab-nav li {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 13px 30px;
-  border-radius: 999px;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1;
-  color: #74747e;
+  color: #15191f;
   background: transparent;
   white-space: nowrap;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
 }
-.de-tab.clayton-tabs .d-tab-nav li .material-symbols-outlined { font-size: 21px; }
-.de-tab.clayton-tabs .d-tab-nav li:not(.active-tab):hover { color: #15191f; }
-.de-tab.clayton-tabs .d-tab-nav .active-tab {
-  background: #fff;
-  color: #15191f;
-  box-shadow: 0 .5rem 1.1rem rgba(0,0,0,.10);
-}
-/* content panel */
-.de-tab.clayton-tabs .d-tab-content > li { padding-top: .5rem; }
-.de-tab.clayton-tabs .d-tab-content img {
+.clayton-tabs .d-tab-nav li .material-symbols-outlined { font-size: 20px; }
+.clayton-tabs .d-tab-nav li:not(.active-tab):hover { background: rgba(0,0,0,.05); }
+.clayton-tabs .d-tab-nav li.active-tab { background: var(--primary-color); color: #fff; }
+.clayton-tabs .d-tab-nav li.active-tab .material-symbols-outlined { color: #fff; }
+
+/* panels: first shows by default (CSS fallback if JS is delayed) */
+.clayton-tabs .d-tab-content { padding: 0; margin: 0; list-style: none; }
+.clayton-tabs .d-tab-content > li { display: none; padding-top: .5rem; }
+.clayton-tabs .d-tab-content > li:first-child { display: block; }
+.clayton-tabs .d-tab-content img {
   border-radius: 18px;
   box-shadow: 0 1.1rem 2.6rem rgba(0,0,0,.13);
 }
-.de-tab.clayton-tabs .d-tab-content h3 { margin-bottom: .6rem; }
-/* icon chip floats at the left; the bold term + description flow together as
-   one block with a hanging indent (wraps cleanly on narrow screens) */
-.de-tab.clayton-tabs .ul-style-2 li {
+.clayton-tabs .d-tab-content h3 { margin-bottom: .6rem; }
+/* icon chip floats at the left; bold term + description flow together with a
+   hanging indent (wraps cleanly on narrow screens) */
+.clayton-tabs .ul-style-2 li {
   position: relative;
   padding-left: 56px;
   min-height: 40px;
   line-height: 1.55;
 }
-.de-tab.clayton-tabs .ul-style-2 li .material-symbols-outlined {
+.clayton-tabs .ul-style-2 li .material-symbols-outlined {
   position: absolute;
   left: 0;
   top: 0;
@@ -324,10 +327,10 @@ html { interpolate-size: allow-keywords; }
   font-size: 21px;
   margin: 0 !important;
 }
-/* mobile: stack the pills full-width inside the rounded track */
-@media (max-width: 767px) {
-  .de-tab.clayton-tabs .d-tab-nav { display: flex !important; flex-direction: column; width: 100%; gap: 4px; border-radius: 22px; }
-  .de-tab.clayton-tabs .d-tab-nav li { display: flex !important; width: 100%; justify-content: center; }
+/* mobile: stack the pills full-width */
+@media (max-width: 575px) {
+  .clayton-tabs .d-tab-nav { display: flex; flex-direction: column; width: 100%; }
+  .clayton-tabs .d-tab-nav li { width: 100%; justify-content: center; }
 }
 
 /* ============================================================
@@ -551,6 +554,7 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
   header.menu-open #mainmenu > li:nth-child(4) { animation-delay: .28s; }
   header.menu-open #mainmenu > li:nth-child(5) { animation-delay: .34s; }
   header.menu-open #mainmenu > li:nth-child(6) { animation-delay: .40s; }
+  header.menu-open #mainmenu > li:nth-child(7) { animation-delay: .46s; }
 }
 @keyframes navItemIn {
   from { opacity: 0; transform: translateX(-16px); }

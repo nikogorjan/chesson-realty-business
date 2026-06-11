@@ -111,9 +111,9 @@ header .col-end { flex-grow: 0; }
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 84px;
-  height: 84px;
-  font-size: 38px;
+  width: 64px;
+  height: 64px;
+  font-size: 30px;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 .4rem 1rem rgba(0,0,0,.06);

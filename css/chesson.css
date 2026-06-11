@@ -106,6 +106,19 @@ header .col-end { flex-grow: 0; }
 }
 .feature-card i,
 .feature-card .material-symbols-outlined { color: var(--primary-color); }
+/* wrap the feature-card icon in a white circle */
+.feature-card.lift .material-symbols-outlined {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  font-size: 30px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 .4rem 1rem rgba(0,0,0,.06);
+  margin-bottom: 1.5rem !important;
+}
 
 /* --- Material Symbols (consistent outlined icon set) --- */
 .material-symbols-outlined {
@@ -127,15 +140,31 @@ header .col-end { flex-grow: 0; }
 /* --- Process / steps --- */
 .step-card { position: relative; padding: 2rem 1.5rem; height: 100%; }
 .step-num {
-  font-size: 3.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  background: #061429;          /* darker blue than the navy section background */
+  font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--primary-color);
-  opacity: .9;
+  margin-bottom: 1.1rem;
 }
 
 /* --- Uniform listing card images (crop any aspect to a consistent shape) --- */
 img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+/* perf: blur the card PHOTO on hover (cheap, scroll-friendly) instead of
+   backdrop-filter on the overlay (re-samples the live backdrop every scroll
+   frame -> laggy). Keeps the same blurred-photo look behind the button. */
+.hover .bg-blur {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: rgba(0,0,0,.3);
+}
+.hover:hover img.hover-scale-1-1 { filter: blur(5px); }
 
 /* --- Areas We Serve cards --- */
 .area-card { position: relative; overflow: hidden; border-radius: 12px; display: block; }
@@ -194,6 +223,19 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .faq details[open] summary::after { content: "\2013"; }
 .faq details[open] summary { border-bottom: 1px solid #eee; }
 .faq details p { padding: 1rem 0 1.2rem; margin: 0; }
+/* smooth open/close animation (modern browsers; falls back to instant elsewhere) */
+html { interpolate-size: allow-keywords; }
+.faq details::details-content {
+  height: 0;
+  opacity: 0;
+  overflow: clip;
+  transition: height .35s ease, opacity .3s ease, content-visibility .35s allow-discrete;
+}
+.faq details[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+.faq summary::after { transition: transform .25s ease; }
 
 /* --- Signature accent --- */
 .signature { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.6rem; }
@@ -223,6 +265,8 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 /* --- Misc --- */
 .text-brand { color: var(--primary-color) !important; }
 .bg-brand { background: var(--primary-color) !important; }
+/* light-grey section tint (was the subtle red/pink rgba(primary,.1)) */
+.bg-color-op-1 { background: #f4f4f5 !important; }
 
 /* ============================================================
    CHESSON PALETTE — deep brand red (main) + navy (support / dark sections)

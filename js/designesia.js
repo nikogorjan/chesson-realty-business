@@ -1307,13 +1307,16 @@
            return $state;
          };
 
-         skrollr.init();
+         // skrollr disabled — nothing on this site uses skrollr keyframes (parallax
+         // uses jarallax). Its forceHeight option was caching a too-short page
+         // height before images finished loading, which clipped the footer.
+         // skrollr.init();
+         //
+         // var s = skrollr.init();
+         // if (s.isMobile()) {
+         //     s.destroy();
+         // }
 
-         var s = skrollr.init();
-         if (s.isMobile()) {
-             s.destroy();
-         }
-         
          // --------------------------------------------------
          // navigation for mobile
          // --------------------------------------------------

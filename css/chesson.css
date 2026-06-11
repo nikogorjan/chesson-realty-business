@@ -139,11 +139,18 @@ header .col-end { flex-grow: 0; }
 /* --- Process / steps --- */
 .step-card { position: relative; padding: 2rem 1.5rem; height: 100%; }
 .step-num {
-  font-size: 3.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  background: #061429;          /* darker blue than the navy section background */
+  font-size: 2.4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--primary-color);
-  opacity: .9;
+  margin-bottom: .35rem;
 }
 
 /* --- Uniform listing card images (crop any aspect to a consistent shape) --- */

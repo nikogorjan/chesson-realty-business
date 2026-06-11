@@ -156,6 +156,15 @@ header .col-end { flex-grow: 0; }
 
 /* --- Uniform listing card images (crop any aspect to a consistent shape) --- */
 img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+/* perf: blur the card PHOTO on hover (cheap, scroll-friendly) instead of
+   backdrop-filter on the overlay (re-samples the live backdrop every scroll
+   frame -> laggy). Keeps the same blurred-photo look behind the button. */
+.hover .bg-blur {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: rgba(0,0,0,.3);
+}
+.hover:hover img.hover-scale-1-1 { filter: blur(5px); }
 
 /* --- Areas We Serve cards --- */
 .area-card { position: relative; overflow: hidden; border-radius: 12px; display: block; }

@@ -223,6 +223,8 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 /* --- Misc --- */
 .text-brand { color: var(--primary-color) !important; }
 .bg-brand { background: var(--primary-color) !important; }
+/* light-grey section tint (was the subtle red/pink rgba(primary,.1)) */
+.bg-color-op-1 { background: #f4f4f5 !important; }
 
 /* ============================================================
    CHESSON PALETTE — deep brand red (main) + navy (support / dark sections)

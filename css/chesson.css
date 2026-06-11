@@ -32,7 +32,8 @@
 #section-hero .swiper-button-prev { z-index: 12; }
 
 /* Meet-William collage: keep every image a uniform square */
-#section-overview .col-lg-6 img { aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; }
+#section-overview .col-lg-6 img,
+.img-collage img { aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; }
 
 /* nav 'Contact William' button stays on one line */
 .menu_side_area .btn-main,
@@ -262,6 +263,180 @@ html { interpolate-size: allow-keywords; }
 .timeline.tl-anim::before { transform: scaleY(0); transition: transform 1.4s ease; }
 .timeline.tl-anim.in-view::before { transform: scaleY(1); }
 
+/* ============================================================
+   Clayton page — Parks tabs (match the #filters pill look site-wide)
+   Self-contained (own JS in clayton.html) so they never fail to load.
+   ============================================================ */
+.clayton-tabs .d-tab-nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clayton-tabs .d-tab-nav li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  color: #15191f;
+  background: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.clayton-tabs .d-tab-nav li .material-symbols-outlined { font-size: 20px; }
+.clayton-tabs .d-tab-nav li:not(.active-tab):hover { background: rgba(0,0,0,.05); }
+.clayton-tabs .d-tab-nav li.active-tab { background: var(--primary-color); color: #fff; }
+.clayton-tabs .d-tab-nav li.active-tab .material-symbols-outlined { color: #fff; }
+
+/* panels: first shows by default (CSS fallback if JS is delayed) */
+.clayton-tabs .d-tab-content { padding: 0; margin: 0; list-style: none; }
+.clayton-tabs .d-tab-content > li { display: none; padding-top: .5rem; }
+.clayton-tabs .d-tab-content > li:first-child { display: block; }
+.clayton-tabs .d-tab-content img {
+  border-radius: 18px;
+  box-shadow: 0 1.1rem 2.6rem rgba(0,0,0,.13);
+}
+.clayton-tabs .d-tab-content h3 { margin-bottom: .6rem; }
+/* icon chip floats at the left; bold term + description flow together with a
+   hanging indent (wraps cleanly on narrow screens) */
+.clayton-tabs .ul-style-2 li {
+  position: relative;
+  padding-left: 56px;
+  min-height: 40px;
+  line-height: 1.55;
+}
+.clayton-tabs .ul-style-2 li .material-symbols-outlined {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f5;
+  border-radius: 50%;
+  font-size: 21px;
+  margin: 0 !important;
+}
+/* mobile: stack the pills full-width */
+@media (max-width: 575px) {
+  .clayton-tabs .d-tab-nav { display: flex; flex-direction: column; width: 100%; }
+  .clayton-tabs .d-tab-nav li { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   Clayton page — editorial neighborhood tiles (content over photo)
+   ============================================================ */
+.nb-tile {
+  position: relative;
+  display: block;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 .8rem 2rem rgba(0,0,0,.14);
+  color: #fff;
+}
+.nb-tile:hover { color: #fff; }
+.nb-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.nb-tile:hover img { transform: scale(1.07); }
+.nb-tile .nb-tile-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,12,20,.92) 6%, rgba(8,12,20,.55) 40%, rgba(8,12,20,.05) 74%);
+}
+.nb-tile .nb-tile-no {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 2;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.02em;
+  opacity: .9;
+}
+.nb-tile .nb-tile-body {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 1.9rem 1.7rem;
+}
+.nb-tile-name { display: block; font-size: 1.5rem; font-weight: 700; line-height: 1.12; }
+.nb-tile-desc { display: block; margin-top: .55rem; font-size: .97rem; line-height: 1.5; color: rgba(255,255,255,.82); }
+.nb-tile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+.nb-tile-tags > span {
+  display: inline-block;
+  padding: 5px 13px;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 999px;
+}
+.nb-tile-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  /* revealed on hover */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, opacity .35s ease, margin-top .4s ease;
+}
+.nb-tile-cta .material-symbols-outlined { font-size: 19px; transition: transform .3s ease; }
+.nb-tile:hover .nb-tile-cta { max-height: 40px; opacity: 1; margin-top: 1.1rem; }
+.nb-tile:hover .nb-tile-cta .material-symbols-outlined { transform: translateX(4px); }
+/* on touch / no-hover devices, keep the CTA visible */
+@media (hover: none) {
+  .nb-tile-cta { max-height: 40px; opacity: 1; margin-top: 1.1rem; }
+}
+
+/* solid navy band (Clayton "by the numbers") */
+.bg-navy { background: var(--secondary-color) !important; }
+
+/* --- Feature card with photo header + overlapping icon badge --- */
+.feature-card-img { padding: 0 !important; overflow: hidden; }
+.feature-card-img .fc-media { overflow: hidden; line-height: 0; }
+.feature-card-img .fc-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.feature-card-img:hover .fc-media img { transform: scale(1.06); }
+.feature-card-img .fc-body { padding: 0 1.8rem 2rem; }
+/* reuse the base white-circle icon, just resize it and pull it up over the photo */
+.feature-card.lift.feature-card-img .fc-icon {
+  width: 58px !important;
+  height: 58px !important;
+  font-size: 27px;
+  margin: -29px 0 1.1rem !important;
+  position: relative;
+  z-index: 2;
+}
+.feature-card-img h4 { margin-bottom: .5rem; }
+
 /* --- Misc --- */
 .text-brand { color: var(--primary-color) !important; }
 .bg-brand { background: var(--primary-color) !important; }
@@ -298,3 +473,90 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
 .faq summary::after { color: var(--primary-color) !important; }                /* red FAQ +/- markers */
 .ul-style-2 li a:hover,
 .text-brand:hover { color: var(--primary-color) !important; }
+
+/* ============================================================
+   Mobile menu — navy panel · white links · red accents · animated
+   ============================================================ */
+@media (max-width: 992px) {
+  /* mobile top bar is always brand navy (was transparent / black) */
+  header,
+  header.transparent,
+  header.header-bg { background: var(--secondary-color) !important; }
+
+  /* when open, pin the header full-screen with a navy backdrop */
+  header.menu-open {
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    height: 100vh !important;
+    background: var(--secondary-color) !important;
+    z-index: 999;
+  }
+
+  /* hamburger -> red X when open */
+  #menu-btn { color: #fff; transition: color .25s ease; }
+  #menu-btn.menu-open { color: var(--primary-color); }
+  #menu-btn.menu-open:before { content: "\f00d"; }   /* fa-times */
+
+  /* the sliding menu panel */
+  #mainmenu {
+    position: fixed !important;
+    top: 76px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 76px) !important;
+    margin: 0 !important;
+    padding: 12px 34px 60px !important;
+    background: linear-gradient(180deg, #002B5C 0%, #001a39 100%);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .3s ease, transform .42s cubic-bezier(.2,.7,.2,1), visibility .3s;
+    z-index: 998;
+  }
+  header.menu-open #mainmenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* links: white, airy, thin light dividers */
+  #mainmenu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  }
+  #mainmenu li:last-child { border-bottom: none !important; }
+  #mainmenu li a.menu-item {
+    color: #fff !important;
+    font-size: 1.22rem !important;
+    font-weight: 500 !important;
+    padding: 17px 0 !important;
+    letter-spacing: .01em;
+    transition: color .2s ease, padding-left .2s ease;
+  }
+  #mainmenu li a.menu-item span:not(.badge) { color: #fff !important; transition: color .2s ease; }
+  /* red on hover / active (with a subtle nudge) */
+  #mainmenu a.menu-item:hover,
+  #mainmenu a.menu-item:active,
+  #mainmenu li a.menu-item.active {
+    background: none !important;
+    color: var(--primary-color) !important;
+    padding-left: 10px !important;
+  }
+  #mainmenu a.menu-item:hover span:not(.badge),
+  #mainmenu li a.menu-item.active span:not(.badge) { color: var(--primary-color) !important; }
+
+  /* staggered entrance for each item */
+  header.menu-open #mainmenu > li { animation: navItemIn .42s ease both; }
+  header.menu-open #mainmenu > li:nth-child(1) { animation-delay: .10s; }
+  header.menu-open #mainmenu > li:nth-child(2) { animation-delay: .16s; }
+  header.menu-open #mainmenu > li:nth-child(3) { animation-delay: .22s; }
+  header.menu-open #mainmenu > li:nth-child(4) { animation-delay: .28s; }
+  header.menu-open #mainmenu > li:nth-child(5) { animation-delay: .34s; }
+  header.menu-open #mainmenu > li:nth-child(6) { animation-delay: .40s; }
+  header.menu-open #mainmenu > li:nth-child(7) { animation-delay: .46s; }
+}
+@keyframes navItemIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

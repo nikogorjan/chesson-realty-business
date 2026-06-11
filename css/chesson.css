@@ -106,6 +106,18 @@ header .col-end { flex-grow: 0; }
 }
 .feature-card i,
 .feature-card .material-symbols-outlined { color: var(--primary-color); }
+/* wrap the feature-card icon in a white circle */
+.feature-card.lift .material-symbols-outlined {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  font-size: 38px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 .4rem 1rem rgba(0,0,0,.06);
+}
 
 /* --- Material Symbols (consistent outlined icon set) --- */
 .material-symbols-outlined {

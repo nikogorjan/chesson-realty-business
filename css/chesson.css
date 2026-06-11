@@ -117,6 +117,7 @@ header .col-end { flex-grow: 0; }
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 .4rem 1rem rgba(0,0,0,.06);
+  margin-bottom: 1.5rem !important;
 }
 
 /* --- Material Symbols (consistent outlined icon set) --- */
@@ -150,7 +151,7 @@ header .col-end { flex-grow: 0; }
   font-weight: 800;
   line-height: 1;
   color: var(--primary-color);
-  margin-bottom: .35rem;
+  margin-bottom: 1.1rem;
 }
 
 /* --- Uniform listing card images (crop any aspect to a consistent shape) --- */

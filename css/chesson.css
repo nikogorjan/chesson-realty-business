@@ -478,17 +478,17 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
    Mobile menu — navy panel · white links · red accents · animated
    ============================================================ */
 @media (max-width: 992px) {
-  /* mobile top bar is always brand navy (was transparent / black) */
+  /* mobile top bar is always the desktop dark-section navy (was transparent / black) */
   header,
   header.transparent,
-  header.header-bg { background: var(--secondary-color) !important; }
+  header.header-bg { background: var(--bg-dark-1) !important; }
 
-  /* when open, pin the header full-screen with a navy backdrop */
+  /* when open, pin the header full-screen with the same navy backdrop */
   header.menu-open {
     position: fixed !important;
     top: 0; left: 0; right: 0;
     height: 100vh !important;
-    background: var(--secondary-color) !important;
+    background: var(--bg-dark-1) !important;
     z-index: 999;
   }
 
@@ -506,7 +506,7 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
     height: calc(100vh - 76px) !important;
     margin: 0 !important;
     padding: 12px 34px 60px !important;
-    background: linear-gradient(180deg, #002B5C 0%, #001a39 100%);
+    background: linear-gradient(180deg, var(--bg-dark-1) 0%, var(--bg-dark-3) 100%);
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;

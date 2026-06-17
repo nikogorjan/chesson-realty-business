@@ -85,6 +85,60 @@
 .logo-chip img { height: 50px; width: auto; display: block; }
 .footer-logo.logo-chip { padding: 10px 16px; }
 .footer-logo.logo-chip img { height: 74px; }
+
+/* ============================================================
+   William Chesson Realty — primary logo, rebuilt as live text
+   (Outfit font; brand red #DA1F2A, ink #16181D, slate #8A93A0)
+   ============================================================ */
+.wrc-logo {
+  --tile: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.wrc-logo .wrc-tile {
+  flex: 0 0 auto;
+  width: var(--tile);
+  height: var(--tile);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #DA1F2A;
+  color: #fff;
+  border-radius: 11px;
+  font-weight: 200;
+  font-size: calc(var(--tile) * .40);
+  letter-spacing: .03em;
+  padding-left: .03em;
+}
+.wrc-logo .wrc-name { display: inline-flex; flex-direction: column; justify-content: center; }
+.wrc-logo .wrc-first {
+  font-size: calc(var(--tile) * .205);
+  letter-spacing: .34em;
+  font-weight: 300;
+  color: #8A93A0;
+  text-transform: uppercase;
+}
+.wrc-logo .wrc-last {
+  font-size: calc(var(--tile) * .42);
+  letter-spacing: .015em;
+  font-weight: 300;
+  color: #16181D;
+  text-transform: uppercase;
+  margin: .08em 0 .05em;
+}
+.wrc-logo .wrc-sub {
+  font-size: calc(var(--tile) * .235);
+  letter-spacing: .42em;
+  font-weight: 200;
+  color: #DA1F2A;
+  text-transform: uppercase;
+}
+.footer-logo .wrc-logo { --tile: 58px; }
 /* logo-left header: keep the logo+nav column wide (button column sizes to
    content) so the 6-item menu stays on one row */
 header .col-end { flex-grow: 0; }

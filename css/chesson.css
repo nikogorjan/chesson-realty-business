@@ -81,9 +81,9 @@
 .footer-logo { font-size: 1.95rem; }
 
 /* Logo on a white chip so the multi-colour logo reads on the dark header/footer */
-.logo-chip { background: #fff; border-radius: 10px; padding: 6px 12px; display: inline-flex; align-items: center; line-height: 0; }
+.logo-chip { background: #fff; border-radius: 10px; padding: 10px 16px; display: inline-flex; align-items: center; justify-content: center; }
 .logo-chip img { height: 50px; width: auto; display: block; }
-.footer-logo.logo-chip { padding: 10px 16px; }
+.footer-logo.logo-chip { padding: 13px 20px; }
 .footer-logo.logo-chip img { height: 74px; }
 
 /* ============================================================
@@ -91,10 +91,10 @@
    (Outfit font; brand red #DA1F2A, ink #16181D, slate #8A93A0)
    ============================================================ */
 .wrc-logo {
-  --tile: 44px;
+  --tile: 38px;
   display: inline-flex;
   align-items: center;
-  gap: 13px;
+  gap: 11px;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1;
   white-space: nowrap;
@@ -138,7 +138,7 @@
   color: #DA1F2A;
   text-transform: uppercase;
 }
-.footer-logo .wrc-logo { --tile: 58px; }
+.footer-logo .wrc-logo { --tile: 50px; }
 /* logo-left header: keep the logo+nav column wide (button column sizes to
    content) so the 6-item menu stays on one row */
 header .col-end { flex-grow: 0; }
@@ -225,6 +225,12 @@ img.hover-scale-1-1 { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .area-card { position: relative; overflow: hidden; border-radius: 12px; display: block; }
 .area-card img { transition: transform .6s ease; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .area-card:hover img { transform: scale(1.08); }
+/* featured large area tile — fills its column height next to a grid of small tiles */
+.area-card.area-lg { height: 100%; }
+.area-card.area-lg img { height: 100%; min-height: 320px; aspect-ratio: auto; }
+.area-card.area-lg .area-label { padding: 2rem 1.5rem 1.3rem; }
+/* wide short tile (last item in the small grid) */
+.area-card.area-wide img { aspect-ratio: 16 / 6; }
 .area-card .area-label {
   position: absolute; left: 0; bottom: 0; width: 100%;
   padding: 1.5rem 1.25rem .9rem;
@@ -543,11 +549,11 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
     top: 0; left: 0; right: 0;
     height: 100vh !important;
     background: var(--bg-dark-1) !important;
-    z-index: 999;
+    z-index: 2000;   /* above the homepage hero (.z-1000) */
   }
 
   /* hamburger -> red X when open */
-  #menu-btn { color: #fff; transition: color .25s ease; }
+  #menu-btn { color: #fff; transition: color .25s ease; z-index: 2002 !important; position: relative; }
   #menu-btn.menu-open { color: var(--primary-color); }
   #menu-btn.menu-open:before { content: "\f00d"; }   /* fa-times */
 
@@ -566,7 +572,7 @@ footer.section-dark { border-top: 5px solid var(--primary-color); }            /
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity .3s ease, transform .42s cubic-bezier(.2,.7,.2,1), visibility .3s;
-    z-index: 998;
+    z-index: 2000;
   }
   header.menu-open #mainmenu {
     opacity: 1;

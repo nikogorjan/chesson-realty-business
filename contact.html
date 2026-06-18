@@ -6,7 +6,7 @@
     <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="Contact William Chesson at Chesson Realty &mdash; 804 Fernwood Dr., Clayton, NC 27520. Call 919-585-7997 or request a showing online." name="description" >
+    <meta content="Contact William Chesson at Chesson Realty &mdash; 804 Fernwood Dr., Clayton, NC 27520. Call 919-413-7512 or request a showing online." name="description" >
     <meta content="contact, Chesson Realty, William Chesson, Clayton NC realtor" name="keywords" >
     <meta content="Chesson Realty" name="author" >
     <!-- Open Graph / social share -->
@@ -93,7 +93,7 @@
                     <p>Have a question, want to see a home, or just thinking about a move? Reach out any way you like &mdash; I personally answer every message.</p>
 
                     <div class="d-flex align-items-start mb-3"><span class="material-symbols-outlined fs-30 id-color me-3">location_on</span><div>804 Fernwood Dr.<br>Clayton, NC 27520</div></div>
-                    <div class="d-flex align-items-start mb-3"><span class="material-symbols-outlined fs-30 id-color me-3">call</span><div>Direct: <a href="tel:+19195857997">919-585-7997</a><br>Mobile: <a href="tel:+19194137512">919-413-7512</a></div></div>
+                    <div class="d-flex align-items-start mb-3"><span class="material-symbols-outlined fs-30 id-color me-3">call</span><div>Mobile: <a href="tel:+19194137512">919-413-7512</a></div></div>
                     <div class="d-flex align-items-start mb-3"><span class="material-symbols-outlined fs-30 id-color me-3">mail</span><div><a href="mailto:ChessonRealty@gmail.com">ChessonRealty@gmail.com</a></div></div>
                     <div class="d-flex align-items-start"><span class="material-symbols-outlined fs-30 id-color me-3">badge</span><div>Realtor&reg; &middot; National Association of Realtors member</div></div>
 
@@ -106,7 +106,14 @@
                 <!-- Form -->
                 <div class="col-lg-8">
                     <h3 class="mb-3">Request a Showing or Ask a Question</h3>
-                    <form name="bookingForm" id="booking_form" method="post" action="booking.php">
+                    <!-- Form submits via Web3Forms (no server needed) and emails ChessonRealty@gmail.com.
+                         SETUP (1 min): go to https://web3forms.com, enter ChessonRealty@gmail.com to get a
+                         free Access Key, then replace REPLACE_WITH_WEB3FORMS_ACCESS_KEY below with it. -->
+                    <form name="bookingForm" id="booking_form" method="post" action="https://api.web3forms.com/submit">
+                        <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY">
+                        <input type="hidden" name="subject" value="New Website Inquiry - Chesson Realty">
+                        <input type="hidden" name="from_name" value="Chesson Realty Website">
+                        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="display:none !important">
                         <div class="row g-4">
                             <div class="col-md-6"><input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required></div>
                             <div class="col-md-6"><input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required></div>
@@ -132,8 +139,8 @@
                             <div class="col-md-12"><div id='submit'><input type='submit' id='send_message' value='Send Message' class="btn-main"></div></div>
                         </div>
                     </form>
-                    <div id="success_message_col" class='success'>Thanks &mdash; your message has been sent. William will be in touch soon. Refresh the page to send another.</div>
-                    <div id="error_message" class='error'>Sorry, there was an error sending your form. Please call 919-413-7512 instead.</div>
+                    <div id="success_message_col" class='success' style="display:none">Thanks &mdash; your message has been sent. William will be in touch soon.</div>
+                    <div id="error_message" class='error' style="display:none">Sorry, there was an error sending your form. Please call or text William at 919-413-7512 instead.</div>
                 </div>
               </div>
             </div>
@@ -174,7 +181,6 @@
             </ul></div>
             <div class="col-lg-3 col-md-6"><h4>Get in Touch</h4>
                 <p class="mb-2"><span class="material-symbols-outlined id-color me-2">location_on</span>804 Fernwood Dr.<br><span class="ms-4">Clayton, NC 27520</span></p>
-                <p class="mb-2"><span class="material-symbols-outlined id-color me-2">call</span>Direct: <a href="tel:+19195857997">919-585-7997</a></p>
                 <p class="mb-2"><span class="material-symbols-outlined id-color me-2">smartphone</span>Mobile: <a href="tel:+19194137512">919-413-7512</a></p>
                 <p class="mb-0"><span class="material-symbols-outlined id-color me-2">mail</span><a href="mailto:ChessonRealty@gmail.com">ChessonRealty@gmail.com</a></p>
             </div>
@@ -192,6 +198,41 @@
         $(function () {
           $("#date").datepicker({ autoclose: true, todayHighlight: true }).datepicker('update', new Date());
         });
+    </script>
+    <script>
+    /* Send the contact form via Web3Forms (no backend) and show the inline result. */
+    (function () {
+      var form = document.getElementById('booking_form');
+      if (!form) return;
+      var ok = document.getElementById('success_message_col');
+      var err = document.getElementById('error_message');
+      var btn = document.getElementById('send_message');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var original = btn ? btn.value : '';
+        if (btn) { btn.value = 'Sending...'; btn.disabled = true; }
+        if (err) err.style.display = 'none';
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.success) {
+            form.style.display = 'none';
+            if (ok) ok.style.display = 'block';
+          } else {
+            if (err) err.style.display = 'block';
+            if (btn) { btn.value = original; btn.disabled = false; }
+          }
+        })
+        .catch(function () {
+          if (err) err.style.display = 'block';
+          if (btn) { btn.value = original; btn.disabled = false; }
+        });
+      });
+    })();
     </script>
 
 </body>

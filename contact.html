@@ -210,25 +210,33 @@
         var original = btn ? btn.value : '';
         if (btn) { btn.value = 'Sending...'; btn.disabled = true; }
         if (err) err.style.display = 'none';
+        var fail = function () {
+          if (err) err.style.display = 'block';
+          if (btn) { btn.value = original; btn.disabled = false; }
+        };
+        // don't let the button hang forever if the server is slow/unreachable
+        var controller = new AbortController();
+        var timer = setTimeout(function () { controller.abort(); }, 25000);
         fetch('/api/send', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           /* URL-encoded (not multipart) so the server's express.urlencoded() parses it */
-          body: new URLSearchParams([...new FormData(form)])
+          body: new URLSearchParams([...new FormData(form)]),
+          signal: controller.signal
         })
-        .then(function (r) { return r.json(); })
+        .then(function (r) { return r.json().catch(function () { return {}; }); })
         .then(function (data) {
+          clearTimeout(timer);
           if (data && data.success) {
             form.style.display = 'none';
             if (ok) ok.style.display = 'block';
           } else {
-            if (err) err.style.display = 'block';
-            if (btn) { btn.value = original; btn.disabled = false; }
+            fail();
           }
         })
         .catch(function () {
-          if (err) err.style.display = 'block';
-          if (btn) { btn.value = original; btn.disabled = false; }
+          clearTimeout(timer);
+          fail();
         });
       });
     })();

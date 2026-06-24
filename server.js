@@ -60,7 +60,11 @@ app.post('/api/send', async (req, res) => {
       host: process.env.SMTP_HOST,
       port,
       secure,
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      // fail fast instead of hanging if the mail host is unreachable/blocked
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 20000
     });
 
     await transporter.sendMail({
@@ -84,7 +88,7 @@ app.post('/api/send', async (req, res) => {
 
     res.json({ success: true });
   } catch (err) {
-    console.error('[mail] send failed:', err && err.message);
+    console.error('[mail] send failed:', (err && err.code) || '', (err && err.command) || '', (err && err.message) || err);
     res.status(500).json({ success: false, error: 'Send failed' });
   }
 });

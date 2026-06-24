@@ -13,9 +13,14 @@
   .hero-cardcol { justify-content: flex-start; align-items: flex-end; padding-top: 120px; }
 }
 @media (max-width: 991px) {
-  .hero-content { display: flex; align-items: flex-end; padding: 86px 0 70px; }
-  .hero-content > .container { width: 100%; }
-  .hero-cardcol { display: none !important; }   /* hide agent card on mobile/tablet */
+  /* on mobile the hero text moves BELOW the marquee (see #hero-mobile);
+     the carousel becomes a 3:2 banner so more of each photo is visible */
+  .hero-content { display: none !important; }
+  /* 3:2 banner = height is 2/3 of the full viewport width */
+  #section-hero .mh-800 { min-height: 0 !important; height: 66.7vw !important; max-height: 70vh; }
+  #section-hero .swiper,
+  #section-hero .swiper-wrapper,
+  #section-hero .swiper-slide { height: 100% !important; }
 }
 
 /* --- Hero carousel: let prev/next arrows receive clicks beneath the overlays --- */

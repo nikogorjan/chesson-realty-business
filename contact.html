@@ -106,14 +106,12 @@
                 <!-- Form -->
                 <div class="col-lg-8">
                     <h3 class="mb-3">Request a Showing or Ask a Question</h3>
-                    <!-- Form submits via Web3Forms (no server needed) and emails ChessonRealty@gmail.com.
-                         SETUP (1 min): go to https://web3forms.com, enter ChessonRealty@gmail.com to get a
-                         free Access Key, then replace REPLACE_WITH_WEB3FORMS_ACCESS_KEY below with it. -->
-                    <form name="bookingForm" id="booking_form" method="post" action="https://api.web3forms.com/submit">
-                        <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY">
-                        <input type="hidden" name="subject" value="New Website Inquiry - Chesson Realty">
-                        <input type="hidden" name="from_name" value="Chesson Realty Website">
-                        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="display:none !important">
+                    <!-- Form POSTs to this site's own backend (/api/send in server.js), which relays the
+                         message over SMTP using credentials stored as Coolify environment variables.
+                         See server.js and .env.example for the required env vars. -->
+                    <form name="bookingForm" id="booking_form" method="post" action="/api/send">
+                        <!-- honeypot: bots fill this; humans never see it -->
+                        <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
                         <div class="row g-4">
                             <div class="col-md-6"><input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required></div>
                             <div class="col-md-6"><input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required></div>
@@ -200,7 +198,7 @@
         });
     </script>
     <script>
-    /* Send the contact form via Web3Forms (no backend) and show the inline result. */
+    /* Send the contact form to our own /api/send endpoint and show the inline result. */
     (function () {
       var form = document.getElementById('booking_form');
       if (!form) return;
@@ -212,7 +210,7 @@
         var original = btn ? btn.value : '';
         if (btn) { btn.value = 'Sending...'; btn.disabled = true; }
         if (err) err.style.display = 'none';
-        fetch('https://api.web3forms.com/submit', {
+        fetch('/api/send', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)

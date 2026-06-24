@@ -68,8 +68,12 @@ app.post('/api/send', async (req, res) => {
     });
 
     await transporter.sendMail({
-      // From should be your own domain mailbox so it passes SPF/DKIM.
-      from: process.env.MAIL_FROM || `"Chesson Realty Website" <${process.env.SMTP_USER}>`,
+      // From MUST contain a real address (the authenticated mailbox) or Gmail
+      // rejects the message as RFC-5322 non-compliant ("'From' header is missing").
+      // If MAIL_FROM has no <address>, treat it as just a display name over SMTP_USER.
+      from: (process.env.MAIL_FROM && process.env.MAIL_FROM.includes('<'))
+        ? process.env.MAIL_FROM
+        : { name: process.env.MAIL_FROM || 'Chesson Realty Website', address: process.env.SMTP_USER },
       to: process.env.MAIL_TO,
       replyTo: `"${name}" <${email}>`,
       subject: 'New Website Inquiry - Chesson Realty',

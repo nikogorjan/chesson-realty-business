@@ -16,7 +16,10 @@
   /* on mobile the hero text moves BELOW the marquee (see #hero-mobile);
      the carousel becomes a 3:2 banner so more of each photo is visible */
   .hero-content { display: none !important; }
-  /* 3:2 banner = height is 2/3 of the full viewport width */
+  /* the navbar is position:absolute and overlays the hero. On the homepage,
+     drop it into normal flow so the carousel starts right below it (no overlap,
+     no magic offset). Scoped with :not(.menu-open) so the full-screen menu still pins. */
+  body.home header:not(.menu-open) { position: relative !important; }
   #section-hero .mh-800 { min-height: 0 !important; height: 66.7vw !important; max-height: 70vh; }
   #section-hero .swiper,
   #section-hero .swiper-wrapper,

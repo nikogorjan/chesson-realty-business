@@ -213,7 +213,8 @@
         fetch('/api/send', {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
+          /* URL-encoded (not multipart) so the server's express.urlencoded() parses it */
+          body: new URLSearchParams([...new FormData(form)])
         })
         .then(function (r) { return r.json(); })
         .then(function (data) {
